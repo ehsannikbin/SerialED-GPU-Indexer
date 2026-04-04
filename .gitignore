@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+build/
+dist/
+*.egg-info/
+
+# C++/CUDA builds
+*.o
+*.so
+
+# Data and outputs
+*.h5
+*.lst
+*.stream
+pinkIndexer.stream.cache.json

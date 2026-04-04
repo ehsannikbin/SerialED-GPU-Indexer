@@ -1,0 +1,48 @@
+python main.py \
+  --wdir F:/Ehsan/2025_03_08_HKUST1/Indexer_test \
+  --geometry amber_center.geom \
+  --cell HKUST1.cell \
+  --input files2.lst \
+  --gpus 1
+  
+  
+  
+python main.py --wdir F:/Ehsan/2025_03_08_HKUST1/Indexer_test --geometry amber_center.geom --cell HKUST1.cell --input files2.lst --gpus 1
+
+
+# Desktop
+python main.py \
+  --wdir F:/Ehsan/2025_03_08_HKUST1/Indexer_test \
+  --geometry amber_center.geom \
+  --cell HKUST1.cell \
+  --input files2.lst \
+  --gpus 1 \
+  --pinkIndexer-max-resolution-for-indexing 0.9 \
+  --batch-size-refinement 64 \
+  --chunk-size-rotogram 2 \
+  --chunk-size-cdist 100000
+  
+python main.py --wdir F:/Ehsan/2025_03_08_HKUST1/Indexer_test --o test_indexer.stream --geometry amber_center.geom --cell HKUST1.cell --input files2.lst --gpus 1 --pinkIndexer-max-resolution-for-indexing 0.9 --batch-size-refinement 64 --chunk-size-rotogram 2 --chunk-size-cdist 100000
+  
+python main.py --wdir F:/Ehsan/2025_03_08_HKUST1/Indexer_test --o test_batch_indexer.stream --geometry amber_center.geom --cell HKUST1.cell --input files3.lst
+
+python main.py --wdir Z:/Ehsan/Ehsan/2025_03_08_HKUST1/Indexer_test --o test_batch_indexer.stream --geometry amber_center.geom --cell HKUST1.cell --input files3.lst
+  
+python main.py --wdir E:\Ehsan\2025_08_13_Cin\2025_08_13_Cin_4doses --o Cin11_GPU_indexer.stream --geometry amber_full.geom --cell cinchonine2.cell --input files.lst
+
+
+python main.py --wdir Z:\Ehsan\2026_03_27_MOF_AE001-090B_SED2_E1\2026_03_27_AE001-090B --o AE001-090B_tric_GPU_indexer.stream --geometry amber_center.geom --cell AE001_090B_triclinic.cell --input files.lst
+
+python main.py --wdir Z:\Ehsan\2026_03_27_MOF_AE001-090B_SED2_E1\2026_03_27_AE001-090B --o AE001-090B_tric2_GPU_indexer.stream --geometry amber_center.geom --cell AE001_090B_triclinic2.cell --input files.lst
+
+  #Cluster
+python main.py \
+  --wdir /cluster/path/... \
+  --geometry amber_center.geom \
+  --cell HKUST1.cell \
+  --input files2.lst \
+  --gpus 4 \
+  --pinkIndexer-max-resolution-for-indexing 0.5 \
+  --batch-size-refinement 512 \
+  --chunk-size-rotogram 10 \
+  --chunk-size-cdist 500000
