@@ -89,7 +89,8 @@ class StreamWriter:
             R = result_dict['final_R']
             
             # 1. Correct rotation: Lab frame B is R @ B (columns are a*, b*, c*)
-            B_rot = torch.mm(R, B).cpu().numpy()
+            # B_rot = torch.mm(R, B).cpu().numpy()
+            B_rot = R @ B
             
             # 2. Extract columns, not rows
             astar = B_rot[:, 0] * 10.0 

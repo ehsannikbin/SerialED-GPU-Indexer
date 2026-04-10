@@ -14,6 +14,7 @@ from stream_handler import StreamWriter
 from integration import Integrator
 
 
+
 def check_solution(fitted_indices, all_intensities, refined_B, input_B, 
                    peak_errors, tolerance, args):
     """
@@ -382,7 +383,7 @@ def gpu_worker(rank, gpu_id, task_queue, args, cell_params, cell_centering, geom
                     'input_peaks_m': t_peaks_m[j][t_masks[j]].cpu().numpy(), 'input_peaks_raw': e_meta['peaks_raw'], 
                     'input_intensities': e_meta['intensities'].cpu().numpy(),
                     'initial_shift_x': e_meta['shift'][0].item(), 'initial_shift_y': e_meta['shift'][1].item(),
-                    'final_R': R_final.detach().cpu(), 'final_B': B_final_stack[j].detach().cpu(),
+                    'final_R': R_final.detach().cpu().numpy(), 'final_B': B_final_stack[j].detach().cpu().numpy(),
                     'refined_dx': res_dict['shift_final'][0], 
                     'refined_dy': res_dict['shift_final'][1],
                     'refl_hkl': pred_hkl.cpu().numpy(), 'refl_pred_pix': pred_pix_tensor.cpu().numpy(),
@@ -504,13 +505,16 @@ def main():
         return
 
     # 3. Dynamic Task Queue Setup
+    
+    mp.set_start_method('spawn', force=True)
+    
     task_queue = mp.Queue()
     result_queue = mp.Queue()
     
     for task in all_tasks: task_queue.put(task)
     for _ in range(total_workers): task_queue.put(None)
     
-    mp.set_start_method('spawn', force=True)
+    
     processes = []
     global_start_time = time.time()
     

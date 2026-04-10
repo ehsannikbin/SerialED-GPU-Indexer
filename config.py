@@ -22,7 +22,7 @@ class PinkIndexerConfig:
                                  help="Number of worker processes to launch per GPU to hide latency. Default 4.")
 
         # --- Performance ---
-        self.parser.add_argument("--gpu-batch-size", type=int, default=8, 
+        self.parser.add_argument("--gpu-batch-size", type=int, default=10, 
                                  help="Number of patterns to process in parallel on the GPU. Default 32.")
         #self.parser.add_argument("--batch-size-refinement", type=int, default=32, help="Refinement seeds per pattern. Default 32.")
         #self.parser.add_argument("--chunk-size-rotogram", type=int, default=4, help="Rotogram chunk size. Default 4.")
@@ -36,18 +36,18 @@ class PinkIndexerConfig:
         self.parser.add_argument("--lr-cell", type=float, default=0.008, help="Learning rate for unit cell deformation.")
         self.parser.add_argument("--huber-delta", type=float, default=0.003, help="Delta threshold for Huber loss.")
         self.parser.add_argument("--radius-start", type=float, default=0.05, help="Starting funnel radius in 1/A.")
-        self.parser.add_argument("--radius-end", type=float, default=0.003, help="Ending funnel radius in 1/A.")
+        self.parser.add_argument("--radius-end", type=float, default=0.004, help="Ending funnel radius in 1/A.")
 
         # --- PinkIndexer Algorithm ---
         self.parser.add_argument("--pinkIndexer-considered-peaks-count", type=int, default=3, help="Peak count level (0-4).")
         self.parser.add_argument("--rotogram-peaks", type=int, default=50, help="Maximum number of bright peaks used to generate the initial rotogram.")
-        self.parser.add_argument("--pinkIndexer-angle-resolution", type=int, default=4, help="Angle resolution level (0-4).")
+        self.parser.add_argument("--pinkIndexer-angle-resolution", type=int, default=4, help="Angle resolution level (0-5).")
         #self.parser.add_argument("--pinkIndexer-refinement-type", type=int, default=5, help="Refinement mode.")
         self.parser.add_argument("--pinkIndexer-refinement-steps", type=int, default=100, help="Total refinement steps (split between rigid/deform).")
         self.parser.add_argument("--pinkIndexer-tolerance", type=float, default=0.06, help="Indexing tolerance.")
         self.parser.add_argument("--res-limit-tolerance", type=float, default=0.5, 
                                  help="Relative fractional tolerance (in RLU) used strictly for calculating the diffraction resolution limit.")
-        self.parser.add_argument("--pinkIndexer-reflection-radius", type=float, default=0.002, help="Reflection radius (1/A).")
+        self.parser.add_argument("--pinkIndexer-reflection-radius", type=float, default=0.003, help="Reflection radius (1/A).")
         self.parser.add_argument("--pinkIndexer-max-resolution-for-indexing", type=float, default=0.7, help="Max resolution (A).")
 
 
@@ -62,7 +62,7 @@ class PinkIndexerConfig:
                                  help="Strength of the constraint to keep refined cell close to input cell.")
         
         # --- Rejection & Limits ---
-        self.parser.add_argument("--min-n-peaks", type=int, default=15, 
+        self.parser.add_argument("--min-n-peaks", type=int, default=10, 
                                  help="Minimum number of peaks required to attempt indexing.")
         
         self.parser.add_argument("--deformation-limit-percent", type=float, default=0.05,

@@ -138,7 +138,7 @@ class PinkIndexer:
         if shift_m is None: shift_m = np.zeros(2)
         if peaks_m.dim() == 1: peaks_m = peaks_m.view(-1, 2)
         
-        levels = {0: 96, 1: 128, 2: 192, 3: 256, 4: 320} #
+        levels = {0: 96, 1: 128, 2: 192, 3: 256, 4: 320, 5: 560, 6: 1024}
         self.rot_size = levels.get(angle_resolution_level, 128)
         self.rot_center = self.rot_size // 2
 

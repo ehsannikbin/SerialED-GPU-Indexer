@@ -26,7 +26,7 @@ python main.py --wdir F:/Ehsan/2025_03_08_HKUST1/Indexer_test --o test_indexer.s
   
 python main.py --wdir F:/Ehsan/2025_03_08_HKUST1/Indexer_test --o test_batch_indexer.stream --geometry amber_center.geom --cell HKUST1.cell --input files3.lst
 
-python main.py --wdir Z:/Ehsan/Ehsan/2025_03_08_HKUST1/Indexer_test --o test_batch_indexer.stream --geometry amber_center.geom --cell HKUST1.cell --input files3.lst
+python main.py --wdir Z:/Ehsan/Ehsan/2025_03_08_HKUST1/2025_03_08_HKUST1_5doses_filtered --o GPU_indexer_PC.stream --geometry amber_center.geom --cell HKUST1.cell --input files.lst
   
 python main.py --wdir E:\Ehsan\2025_08_13_Cin\2025_08_13_Cin_4doses --o Cin11_GPU_indexer.stream --geometry amber_full.geom --cell cinchonine2.cell --input files.lst
 
@@ -35,6 +35,15 @@ python main.py --wdir Z:\Ehsan\2026_03_27_MOF_AE001-090B_SED2_E1\2026_03_27_AE00
 
 python main.py --wdir Z:\Ehsan\2026_03_27_MOF_AE001-090B_SED2_E1\2026_03_27_AE001-090B --o AE001-090B_tric2_GPU_indexer.stream --geometry amber_center.geom --cell AE001_090B_triclinic2.cell --input files.lst
 
+python main.py --wdir Z:\Ehsan\2026_03_27_MOF_AE001-090B_SED2_E1\2026_03_27_AE001-090B --o AE001-090B_monoC_try2_GPU_indexer.stream --geometry amber_center.geom --cell AE001_090B_monoC.cell --input files.lst
+
+python main.py --wdir Z:\Ehsan\2026_03_27_MOF_AE001-090B_SED2_E1\2026_03_27_AE001-090B --o AE001-090B_monoC_try2_GPU_indexer.stream --geometry amber_center.geom --cell AE001_090B_monoC.cell --input files.lst --rotogram-shell-multiplier 2.0 --radius-start 0.005 --radius-end 0.001 --pinkIndexer-reflection-radius 0.0005 --pinkIndexer-tolerance 0.06 --pinkIndexer-max-resolution-for-indexing 0.8 --gpu-batch-size 12 --rotogram-spin-steps 720 --pinkIndexer-angle-resolution 5
+
+python main.py --wdir Z:\Ehsan\Lysozyme_Robert --o Lyso_GPU_indexer.stream --geometry final2.geom --cell refined.cell --input files.lst --rotogram-shell-multiplier 1.0 --radius-start 0.005 --radius-end 0.001 --pinkIndexer-reflection-radius 0.001 --pinkIndexer-tolerance 0.05 --pinkIndexer-max-resolution-for-indexing 2.0 --gpu-batch-size 12
+
+python main.py --wdir Z:\Ehsan\Ehsan\2025_04_01_Fe_qsal\2025_04_01_Fe_qsal_6doses_filtered --o FeQsal_GPU_indexer.stream --geometry amber_full.geom --cell FeQsal.cell --input files.lst
+
+python main.py --wdir Z:\Ehsan\2026_03_27_MOF_AE001-090B_SED2_E1\2026_03_27_AE001-090B --o AE001-090B_monoC_try4_GPU_indexer.stream --geometry amber_center.geom --cell AE001_090B_monoC.cell --input files.lst --rotogram-shell-multiplier 2.0 --radius-start 0.01 --radius-end 0.002 --pinkIndexer-reflection-radius 0.001 --pinkIndexer-tolerance 0.06 --pinkIndexer-max-resolution-for-indexing 0.8 --gpu-batch-size 10 --rotogram-spin-steps 720 --pinkIndexer-angle-resolution 5 --expanded-radius-multiplier 1.0 --rejection-iwr-threshold 0.5 --push-res 0.8 --min-n-peaks 15
   #Cluster
 python main.py \
   --wdir /cluster/path/... \
